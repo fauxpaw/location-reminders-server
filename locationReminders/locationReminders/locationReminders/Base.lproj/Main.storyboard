@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3KO-z7-o0t">
+                                <rect key="frame" x="20" y="20" width="560" height="450"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ms1-Ln-Pxg">
+                                <rect key="frame" x="20" y="562" width="560" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="560" id="Phb-Ci-fDd"/>
+                                </constraints>
+                                <state key="normal" title="Vatican (Rome, Italy)"/>
+                                <connections>
+                                    <action selector="firstLocationButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J8Q-7M-9Jw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jd2-YH-vVi">
+                                <rect key="frame" x="20" y="516" width="560" height="38"/>
+                                <state key="normal" title="The Great Sphinx (Giza, Egypt)"/>
+                                <connections>
+                                    <action selector="secondLocationButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NVW-1G-Euc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xvv-my-J3s">
+                                <rect key="frame" x="20" y="478" width="560" height="30"/>
+                                <state key="normal" title="Castle of the White Crane (Himeji, Japan)"/>
+                                <connections>
+                                    <action selector="thirdLocationButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="whb-PD-gHH"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ms1-Ln-Pxg" firstAttribute="top" secondItem="3KO-z7-o0t" secondAttribute="bottom" constant="92" id="086-br-KTn"/>
+                            <constraint firstItem="3KO-z7-o0t" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="CRj-Ai-4a3"/>
+                            <constraint firstItem="3KO-z7-o0t" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" id="GIa-dx-Jdu"/>
+                            <constraint firstItem="Jd2-YH-vVi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GIw-RM-VGa"/>
+                            <constraint firstItem="Xvv-my-J3s" firstAttribute="centerX" secondItem="Jd2-YH-vVi" secondAttribute="centerX" id="Yyz-MA-plG"/>
+                            <constraint firstAttribute="bottom" secondItem="ms1-Ln-Pxg" secondAttribute="bottom" constant="8" id="Yz3-WU-TsH"/>
+                            <constraint firstItem="ms1-Ln-Pxg" firstAttribute="top" secondItem="Jd2-YH-vVi" secondAttribute="bottom" constant="8" id="eqf-wc-Ro9"/>
+                            <constraint firstItem="Jd2-YH-vVi" firstAttribute="leading" secondItem="Xvv-my-J3s" secondAttribute="leading" id="gly-VA-FnH"/>
+                            <constraint firstItem="3KO-z7-o0t" firstAttribute="centerX" secondItem="ms1-Ln-Pxg" secondAttribute="centerX" id="ky3-dB-Nfs"/>
+                            <constraint firstItem="Jd2-YH-vVi" firstAttribute="top" secondItem="Xvv-my-J3s" secondAttribute="bottom" constant="8" id="uFb-85-r2n"/>
+                            <constraint firstItem="Jd2-YH-vVi" firstAttribute="leading" secondItem="ms1-Ln-Pxg" secondAttribute="leading" id="v5V-eH-KIp"/>
+                            <constraint firstItem="3KO-z7-o0t" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="wSJ-Rg-JXh"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="3KO-z7-o0t" id="yya-ch-6Ga"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="370" y="277"/>
+        </scene>
+    </scenes>
+</document>
