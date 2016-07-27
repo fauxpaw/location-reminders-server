@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4CC8EC1C1D47CE1E00A54C7F /* LocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC8EC1B1D47CE1E00A54C7F /* LocationController.m */; };
+		4CC8EC1F1D47E02600A54C7F /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC8EC1E1D47E02600A54C7F /* DetailViewController.m */; };
+		4CC8EC221D482A6700A54C7F /* AnagramChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC8EC211D482A6700A54C7F /* AnagramChecker.m */; };
 		4CDD8DD91D46829600D04A92 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDD8DD81D46829600D04A92 /* main.m */; };
 		4CDD8DDC1D46829600D04A92 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDD8DDB1D46829600D04A92 /* AppDelegate.m */; };
 		4CDD8DDF1D46829600D04A92 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDD8DDE1D46829600D04A92 /* ViewController.m */; };
@@ -35,6 +38,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4CC8EC1A1D47CE1E00A54C7F /* LocationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationController.h; sourceTree = "<group>"; };
+		4CC8EC1B1D47CE1E00A54C7F /* LocationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationController.m; sourceTree = "<group>"; };
+		4CC8EC1D1D47E02600A54C7F /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		4CC8EC1E1D47E02600A54C7F /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		4CC8EC201D482A6700A54C7F /* AnagramChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnagramChecker.h; sourceTree = "<group>"; };
+		4CC8EC211D482A6700A54C7F /* AnagramChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnagramChecker.m; sourceTree = "<group>"; };
 		4CDD8DD41D46829600D04A92 /* locationReminders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = locationReminders.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CDD8DD81D46829600D04A92 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4CDD8DDA1D46829600D04A92 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -64,6 +73,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4CC8EC191D47CDCC00A54C7F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4CDD8DDD1D46829600D04A92 /* ViewController.h */,
+				4CDD8DDE1D46829600D04A92 /* ViewController.m */,
+				4CC8EC1D1D47E02600A54C7F /* DetailViewController.h */,
+				4CC8EC1E1D47E02600A54C7F /* DetailViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		4CDD8DCB1D46829600D04A92 = {
 			isa = PBXGroup;
 			children = (
@@ -86,15 +106,18 @@
 		4CDD8DD61D46829600D04A92 /* locationReminders */ = {
 			isa = PBXGroup;
 			children = (
+				4CC8EC1A1D47CE1E00A54C7F /* LocationController.h */,
+				4CC8EC1B1D47CE1E00A54C7F /* LocationController.m */,
 				4CDD8DDA1D46829600D04A92 /* AppDelegate.h */,
 				4CDD8DDB1D46829600D04A92 /* AppDelegate.m */,
-				4CDD8DDD1D46829600D04A92 /* ViewController.h */,
-				4CDD8DDE1D46829600D04A92 /* ViewController.m */,
+				4CC8EC191D47CDCC00A54C7F /* Controller */,
 				4CDD8DE01D46829600D04A92 /* Main.storyboard */,
 				4CDD8DE31D46829600D04A92 /* Assets.xcassets */,
 				4CDD8DE51D46829600D04A92 /* LaunchScreen.storyboard */,
 				4CDD8DE81D46829600D04A92 /* Info.plist */,
 				4CDD8DD71D46829600D04A92 /* Supporting Files */,
+				4CC8EC201D482A6700A54C7F /* AnagramChecker.h */,
+				4CC8EC211D482A6700A54C7F /* AnagramChecker.m */,
 			);
 			path = locationReminders;
 			sourceTree = "<group>";
@@ -183,9 +206,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CC8EC1F1D47E02600A54C7F /* DetailViewController.m in Sources */,
+				4CC8EC1C1D47CE1E00A54C7F /* LocationController.m in Sources */,
 				4CDD8DDF1D46829600D04A92 /* ViewController.m in Sources */,
 				4CDD8DDC1D46829600D04A92 /* AppDelegate.m in Sources */,
 				4CDD8DD91D46829600D04A92 /* main.m in Sources */,
+				4CC8EC221D482A6700A54C7F /* AnagramChecker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,6 +370,7 @@
 				4CDD8DED1D46829600D04A92 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
