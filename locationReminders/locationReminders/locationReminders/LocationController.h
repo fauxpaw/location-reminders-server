@@ -15,11 +15,6 @@
 
 @end
 
-
-
-
-
-
 @interface LocationController : NSObject
 
 @property (strong, nonatomic) CLLocationManager *locationManager;

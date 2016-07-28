@@ -94,20 +94,52 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tbb-gR-agT">
-                                <rect key="frame" x="279" y="289.5" width="42" height="20"/>
+                                <rect key="frame" x="279" y="560" width="42" height="20"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Radius" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IWG-mh-VEd">
+                                <rect key="frame" x="20" y="237" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q4P-8W-EkI">
+                                <rect key="frame" x="20" y="172" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RqU-QC-UPk">
+                                <rect key="frame" x="20" y="298" width="560" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.91709456400798783" blue="0.34370404688337119" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Create Location"/>
+                                <connections>
+                                    <action selector="createReminderButtonSelected:" destination="tY3-Nr-E10" eventType="touchUpInside" id="OBk-JX-oc8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Tbb-gR-agT" firstAttribute="centerY" secondItem="CAg-cr-wrL" secondAttribute="centerY" id="Pf1-DZ-NOE"/>
+                            <constraint firstItem="q4P-8W-EkI" firstAttribute="centerX" secondItem="CAg-cr-wrL" secondAttribute="centerX" id="4a5-Yt-BDR"/>
+                            <constraint firstItem="RqU-QC-UPk" firstAttribute="top" secondItem="IWG-mh-VEd" secondAttribute="bottom" constant="31" id="8it-i3-teX"/>
+                            <constraint firstItem="q4P-8W-EkI" firstAttribute="top" secondItem="PJg-Ut-efa" secondAttribute="bottom" constant="108" id="HmQ-MF-1x8"/>
+                            <constraint firstItem="RqU-QC-UPk" firstAttribute="centerX" secondItem="CAg-cr-wrL" secondAttribute="centerX" id="P6l-lc-Wq4"/>
+                            <constraint firstItem="Tbb-gR-agT" firstAttribute="centerY" secondItem="CAg-cr-wrL" secondAttribute="centerY" constant="270" id="Pf1-DZ-NOE"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="IWG-mh-VEd" secondAttribute="leading" id="QzO-qC-O1Q"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="q4P-8W-EkI" secondAttribute="leading" id="RRW-h3-7nQ"/>
+                            <constraint firstItem="IWG-mh-VEd" firstAttribute="top" secondItem="q4P-8W-EkI" secondAttribute="bottom" constant="35" id="WLI-iQ-JfF"/>
+                            <constraint firstItem="IWG-mh-VEd" firstAttribute="centerX" secondItem="CAg-cr-wrL" secondAttribute="centerX" id="bXI-vt-Hxp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="q4P-8W-EkI" secondAttribute="trailing" id="e80-kI-mWk"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="RqU-QC-UPk" secondAttribute="leading" id="q2Y-li-Wcv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="IWG-mh-VEd" secondAttribute="trailing" id="rcN-is-dZt"/>
                             <constraint firstItem="Tbb-gR-agT" firstAttribute="centerX" secondItem="CAg-cr-wrL" secondAttribute="centerX" id="srO-V5-vib"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="RqU-QC-UPk" secondAttribute="trailing" id="uMN-k0-bYT"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="coordLabel" destination="Tbb-gR-agT" id="8aS-Ak-beC"/>
+                        <outlet property="nameField" destination="q4P-8W-EkI" id="ZRk-CT-cCk"/>
+                        <outlet property="radiusField" destination="IWG-mh-VEd" id="ArU-CV-Og5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jun-SC-Kib" userLabel="First Responder" sceneMemberID="firstResponder"/>

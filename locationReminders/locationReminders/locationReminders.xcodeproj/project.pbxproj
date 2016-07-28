@@ -10,6 +10,9 @@
 		4CC8EC1C1D47CE1E00A54C7F /* LocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC8EC1B1D47CE1E00A54C7F /* LocationController.m */; };
 		4CC8EC1F1D47E02600A54C7F /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC8EC1E1D47E02600A54C7F /* DetailViewController.m */; };
 		4CC8EC221D482A6700A54C7F /* AnagramChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC8EC211D482A6700A54C7F /* AnagramChecker.m */; };
+		4CC8EC241D492B7600A54C7F /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC8EC231D492B7600A54C7F /* ParseUI.framework */; };
+		4CC8EC251D492BBE00A54C7F /* ParseUI.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4CC8EC231D492B7600A54C7F /* ParseUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4CC8EC281D49308A00A54C7F /* Reminder.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC8EC271D49308A00A54C7F /* Reminder.m */; };
 		4CDD8DD91D46829600D04A92 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDD8DD81D46829600D04A92 /* main.m */; };
 		4CDD8DDC1D46829600D04A92 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDD8DDB1D46829600D04A92 /* AppDelegate.m */; };
 		4CDD8DDF1D46829600D04A92 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDD8DDE1D46829600D04A92 /* ViewController.m */; };
@@ -30,6 +33,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				4CC8EC251D492BBE00A54C7F /* ParseUI.framework in CopyFiles */,
 				4CDD8DF41D4686BB00D04A92 /* Parse.framework in CopyFiles */,
 				4CDD8DF31D4686B500D04A92 /* Bolts.framework in CopyFiles */,
 			);
@@ -44,6 +48,9 @@
 		4CC8EC1E1D47E02600A54C7F /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		4CC8EC201D482A6700A54C7F /* AnagramChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnagramChecker.h; sourceTree = "<group>"; };
 		4CC8EC211D482A6700A54C7F /* AnagramChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnagramChecker.m; sourceTree = "<group>"; };
+		4CC8EC231D492B7600A54C7F /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
+		4CC8EC261D49308A00A54C7F /* Reminder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reminder.h; sourceTree = "<group>"; };
+		4CC8EC271D49308A00A54C7F /* Reminder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reminder.m; sourceTree = "<group>"; };
 		4CDD8DD41D46829600D04A92 /* locationReminders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = locationReminders.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CDD8DD81D46829600D04A92 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4CDD8DDA1D46829600D04A92 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -66,6 +73,7 @@
 			files = (
 				4CDD8DF01D46864D00D04A92 /* Bolts.framework in Frameworks */,
 				4CDD8DF61D4694E700D04A92 /* MapKit.framework in Frameworks */,
+				4CC8EC241D492B7600A54C7F /* ParseUI.framework in Frameworks */,
 				4CDD8DF11D46864D00D04A92 /* Parse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -90,6 +98,7 @@
 				4CDD8DF51D4694E700D04A92 /* MapKit.framework */,
 				4CDD8DEE1D46864D00D04A92 /* Bolts.framework */,
 				4CDD8DEF1D46864D00D04A92 /* Parse.framework */,
+				4CC8EC231D492B7600A54C7F /* ParseUI.framework */,
 				4CDD8DD61D46829600D04A92 /* locationReminders */,
 				4CDD8DD51D46829600D04A92 /* Products */,
 			);
@@ -118,6 +127,8 @@
 				4CDD8DD71D46829600D04A92 /* Supporting Files */,
 				4CC8EC201D482A6700A54C7F /* AnagramChecker.h */,
 				4CC8EC211D482A6700A54C7F /* AnagramChecker.m */,
+				4CC8EC261D49308A00A54C7F /* Reminder.h */,
+				4CC8EC271D49308A00A54C7F /* Reminder.m */,
 			);
 			path = locationReminders;
 			sourceTree = "<group>";
@@ -212,6 +223,7 @@
 				4CDD8DDC1D46829600D04A92 /* AppDelegate.m in Sources */,
 				4CDD8DD91D46829600D04A92 /* main.m in Sources */,
 				4CC8EC221D482A6700A54C7F /* AnagramChecker.m in Sources */,
+				4CC8EC281D49308A00A54C7F /* Reminder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +340,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = locationReminders/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -343,6 +356,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = locationReminders/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
