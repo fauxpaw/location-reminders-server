@@ -51,7 +51,7 @@
     [self.mapView setShowsUserLocation:YES];
     [self createStartingLocales];
     [self setupStartingReminders];
-
+    
     [self.mapView addAnnotations:_startingCoords];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(testObserverFired) name:@"TestNotification" object:nil];
     [self login];
@@ -63,24 +63,31 @@
     
     [[LocationController sharedController]setDelegate:self];
     [[[LocationController sharedController]locationManager]startUpdatingLocation];
-
+    
 }
 
 -(void) setupStartingReminders {
     
+    __weak typeof (self) weakSelf = self;
+    
     PFQuery *query = [PFQuery queryWithClassName:@"Reminder"];
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        __strong typeof (weakSelf) strongSelf = self;
         
         if (!error && objects.count > 0) {
             
             for (PFObject *item in objects) {
                 Reminder *reminder = [[Reminder alloc]init];
                 reminder.location = [item objectForKey:@"location"];
-                NSLog(@"location is: %@", reminder.location);
+                //                NSLog(@"location is: %@", reminder.location);
                 
                 
                 reminder.name = [item objectForKey:@"name"];
+                NSLog(@"name is: %@", reminder.name);
+                
                 reminder.radius = [item objectForKey:@"radius"];
+                NSLog(@"radius is: %@", reminder.radius);
+                
                 
                 CLLocation *loc = [[CLLocation alloc]initWithLatitude:reminder.location.latitude longitude:reminder.location.longitude];
                 CLLocationCoordinate2D coord = CLLocationCoordinate2DMake(loc.coordinate.latitude, loc.coordinate.longitude);
@@ -89,7 +96,8 @@
                     CLCircularRegion *eventRegion = [[CLCircularRegion alloc]initWithCenter: coord radius:reminder.radius.floatValue identifier:reminder.name];
                     [[[LocationController sharedController]locationManager]startMonitoringForRegion:eventRegion];
                     
-                    self.completion([MKCircle circleWithCenterCoordinate:coord radius:reminder.radius.floatValue]);
+                    MKCircle *circle = [MKCircle circleWithCenterCoordinate:coord radius:reminder.radius.floatValue];
+                    [strongSelf.mapView addOverlay:circle];
                 }
             }
             
@@ -183,7 +191,7 @@
         default:
             break;
     }
-
+    
     return inputAnnoView;
 }
 
@@ -201,7 +209,7 @@
         annotationView = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:@"annotationView"];
     }
     
-
+    
     [self randomizePinColor:annotationView];
     
     annotationView.animatesDrop = YES;
@@ -225,7 +233,7 @@
             __weak typeof (self) weakSelf = self;
             detailViewController.completion = ^(MKCircle *cirle){
                 __strong typeof (weakSelf) strongSelf = weakSelf;
-
+                
                 [strongSelf.mapView removeAnnotation:annotationView.annotation];
                 [strongSelf.mapView addOverlay:cirle];
                 
@@ -277,7 +285,7 @@
     [_startingCoords addObject:zubatPin];
     [_startingCoords addObject:growlithePin];
     [_startingCoords addObject:pidgeyPin];
-
+    
     
     //    [self.mapView addAnnotation:cfPoint];
     //    [self.mapView addAnnotation:seelPoint];
