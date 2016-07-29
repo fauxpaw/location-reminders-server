@@ -12,11 +12,13 @@
 @import ParseUI;
 #import "DetailViewController.h"
 #import "LocationController.h"
+#import "Reminder.h"
 
 @interface ViewController () <MKMapViewDelegate, LocationControllerDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) NSMutableArray *startingCoords;
+@property DetailViewControllerCompletion completion;
 
 - (IBAction)handleLongPress:(UILongPressGestureRecognizer *)sender;
 
@@ -47,8 +49,9 @@
     [self.mapView.layer setCornerRadius:20.0];
     [self.mapView setDelegate:self];
     [self.mapView setShowsUserLocation:YES];
-    
     [self createStartingLocales];
+    [self setupStartingReminders];
+
     [self.mapView addAnnotations:_startingCoords];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(testObserverFired) name:@"TestNotification" object:nil];
     [self login];
@@ -60,7 +63,42 @@
     
     [[LocationController sharedController]setDelegate:self];
     [[[LocationController sharedController]locationManager]startUpdatingLocation];
+
+}
+
+-(void) setupStartingReminders {
     
+    PFQuery *query = [PFQuery queryWithClassName:@"Reminder"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        
+        if (!error && objects.count > 0) {
+            
+            for (PFObject *item in objects) {
+                Reminder *reminder = [[Reminder alloc]init];
+                reminder.location = [item objectForKey:@"location"];
+                NSLog(@"location is: %@", reminder.location);
+                
+                
+                reminder.name = [item objectForKey:@"name"];
+                reminder.radius = [item objectForKey:@"radius"];
+                
+                CLLocation *loc = [[CLLocation alloc]initWithLatitude:reminder.location.latitude longitude:reminder.location.longitude];
+                CLLocationCoordinate2D coord = CLLocationCoordinate2DMake(loc.coordinate.latitude, loc.coordinate.longitude);
+                
+                if ([CLLocationManager isMonitoringAvailableForClass:[CLCircularRegion class]]) {
+                    CLCircularRegion *eventRegion = [[CLCircularRegion alloc]initWithCenter: coord radius:reminder.radius.floatValue identifier:reminder.name];
+                    [[[LocationController sharedController]locationManager]startMonitoringForRegion:eventRegion];
+                    
+                    self.completion([MKCircle circleWithCenterCoordinate:coord radius:reminder.radius.floatValue]);
+                }
+            }
+            
+        } else {
+            NSLog(@"ERROR: %@", error.localizedDescription);
+        }
+        
+        
+    }];
 }
 
 -(void)dealloc{

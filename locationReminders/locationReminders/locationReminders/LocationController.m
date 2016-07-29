@@ -7,6 +7,7 @@
 //
 
 #import "LocationController.h"
+@import UIKit;
 
 @interface LocationController ()<CLLocationManagerDelegate>
 
@@ -46,6 +47,17 @@
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations{
     [self.delegate locationControllerDidUpdateLocation:locations.lastObject];
     [self setLocation:locations.lastObject];
+}
+
+-(void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region{
+    NSLog(@"User Did Enter Region");
+    
+    UILocalNotification *notification = [[UILocalNotification alloc]init];
+    notification.alertTitle = @"You have entered a region";
+    notification.alertBody = @"🐺 Pokemons are everywhere";
+    
+    [[UIApplication sharedApplication]presentLocalNotificationNow:notification];
+    
 }
 
 @end

@@ -24,8 +24,16 @@
         configuration.clientKey = @"myMasterKey";
         configuration.server = @"https://location-reminders-serverms.herokuapp.com/parse";
     }]];
-    
+    [self registerForNotification];
     return YES;
+}
+
+-(void)registerForNotification {
+    
+    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
+    
+    [[UIApplication sharedApplication]registerUserNotificationSettings:settings];
+    
 }
 
 @end

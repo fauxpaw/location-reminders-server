@@ -8,6 +8,7 @@
 
 #import "DetailViewController.h"
 #import "Reminder.h"
+#import "LocationController.h"
 
 @interface DetailViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *coordLabel;
@@ -33,8 +34,6 @@
 
 - (IBAction)createReminderButtonSelected:(UIButton *)sender {
     
-    
-    
     NSString *reminderName = _nameField.text;
     NSNumberFormatter *f = [[NSNumberFormatter alloc]init];
     f.numberStyle = NSNumberFormatterDecimalStyle;
@@ -46,9 +45,25 @@
     
     reminder.location = [PFGeoPoint geoPointWithLatitude:self.coordinate.latitude longitude:self.coordinate.longitude];
     
-    if (self.completion) {
-        self.completion([MKCircle circleWithCenterCoordinate:self.coordinate radius:radius.floatValue]);
-        [self.navigationController popViewControllerAnimated:YES];
-    }
+    __weak typeof (self) weakSelf = self;
+    
+    [reminder saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        __strong typeof (weakSelf) strongSelf = self;
+        NSLog(@"Reminder saved to parse server");
+        
+        if (strongSelf.completion) {
+            
+            if ([CLLocationManager isMonitoringAvailableForClass:[CLCircularRegion class]]) {
+                CLCircularRegion *region = [[CLCircularRegion alloc]initWithCenter:strongSelf.coordinate radius:radius.floatValue identifier:reminderName];
+                [[[LocationController sharedController]locationManager]startMonitoringForRegion:region];
+                strongSelf.completion([MKCircle circleWithCenterCoordinate:strongSelf.coordinate radius:radius.floatValue]);
+                [strongSelf.navigationController popViewControllerAnimated:YES];
+            }
+            
+            self.completion([MKCircle circleWithCenterCoordinate:self.coordinate radius:radius.floatValue]);
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    }];
+    
 }
 @end
